@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import React from 'react'
-import Skills from './skills'
+import Skills from './Skills'
 import { motion } from 'framer-motion'
 
 const About = () => {
