@@ -12,7 +12,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             className="grid grid-cols-1 lg:grid-cols-12 mt-12 ">
-            <div className="lg:col-span-7 place-self-center p-10 space-y-2 ">
+            <div className="lg:col-span-7 place-self-center p-8 space-y-2 ">
                 <div className="flex text-3xl">
                     <h1>Hi, I&apos;m Hadyan</h1>
                     <div className='ml-1 animate-waving-hand'>👋</div>

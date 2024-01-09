@@ -10,8 +10,10 @@ const About = () => {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay:0.175 }}
+        id='about'
+        className='scroll-mt-16'
     >
-        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+        <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-8 xl:gap-16 sm:py-16">
             <Image src={'/about-image.jpeg'} alt='about' width={500} height={500}/>
             <div>
                 <h2 className='text-4xl font-bold mb-4 border-b border-blue-800 w-fit'>About Me</h2>

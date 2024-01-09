@@ -33,7 +33,7 @@ const Skills = () => {
             {skillsData.map((skill, index) => (
                 <motion.li
                 initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0, transition: { delay: 0.05 } }}
                 viewport={{ once: true }} 
                 className='bg-white border border-black/10 rounded-xl px-3 py-1' key={index}>{skill}</motion.li>
             ))}
