@@ -1,4 +1,5 @@
 import About from '@/components/About'
+import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
 import ProjectSection from '@/components/ProjectSection'
@@ -11,7 +12,7 @@ export default function Home() {
       <Hero />
       <About/>
       <ProjectSection/>
-      <h1>Hello world</h1>
+      <Footer/>
     </main>
   )
 }
