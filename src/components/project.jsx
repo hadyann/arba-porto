@@ -5,7 +5,7 @@ import { projectsData } from '@/lib/data'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-export default function Project({title, description, tags}) {
+export default function Project({title, description, tags, image}) {
     const ref = useRef(null)
   
     const { scrollYProgress } = useScroll({
@@ -25,7 +25,7 @@ export default function Project({title, description, tags}) {
         >
             <section 
             
-            className='bg-gray-100 max-w-2xl border border-black/5 overflow-hidden relative sm:pr-8 sm:h-[20rem]  hover:bg-gray-200 transition group'>
+            className='bg-gray-100 max-w-2xl border border-black/5 overflow-hidden relative sm:pr-8 sm:h-[20rem]  hover:bg-gray-200 hover:rounded-xl transition group'>
             <div className='p-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%]'>
                 <h3 className='text-2xl font-semibold'>{title}</h3>
                 <p className='mt-2 leading-relaxed text-gray-700'>{description}</p>
@@ -38,8 +38,8 @@ export default function Project({title, description, tags}) {
             </div>
         
             <Image
-                className='absolute top-8 -right-40 w-[28rem] rounded-t-lg shadow-2xl group-hover:scale-105 group-hover:-translate-x-3 group-hover:translate-y-2 group-hover:-rotate-2 transition'
-                src="/anime.png" alt="anime" quality={90} width={200} height={200}>
+                className='absolute top-8 -right-80 w-[50rem] rounded-lg shadow-2xl group-hover:scale-105 group-hover:-translate-x-3 group-hover:translate-y-2 group-hover:-rotate-2 transition'
+                src={image} alt="anime" quality={90} width={200} height={200}>
             
             </Image>
             </section>
