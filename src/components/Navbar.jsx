@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import Link from "next/link"
 import NavLink from "./NavLink"
 import { useState } from "react"
@@ -23,11 +23,31 @@ const navLinks = [
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(true)
+    const [hidden, setHidden] = useState(false)
+
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious();
+        if(latest > previous && latest > 150){
+            setHidden(true)
+        }else{
+            setHidden(false)
+        }
+    })
 
     return(
-        <header className="fixed top-0 left-0 w-full z-[999]">
-            <motion.div className="flex flex-wrap items-center justify-between bg-blue-900 bg-opacity-80 shadow-lg py-4 px-10"
-            initial={{y: -100, opacity: 0}} animate={{y: 0, opacity: 1}}>
+        <motion.header 
+        initial={{y: "-100%", opacity: 0}}
+        animate={{y: 0, opacity: 1}}
+        className="fixed top-0 left-0 w-full z-[999]">
+            <motion.div className="sticky flex flex-wrap items-center justify-between bg-blue-900 bg-opacity-80 shadow-lg py-4 px-10"
+            variants={{ 
+                visible: {y: 0},
+                hidden: {y: "-100%"},
+             }}
+             animate={hidden ? "hidden" : "visible"}
+             transition={{ duration: 0.35 , ease: "easeInOut"}}>
                 <div>
                     <Link href={"/"} className="text-white text-xl font-bold">Hadyan<span className="text-orange-300">Porto</span></Link>
                 </div>
@@ -56,7 +76,7 @@ const Navbar = () => {
                 {!navbarOpen && <MenuOverlay link={navLinks}/>}
             </motion.div>
                
-        </header>
+        </motion.header>
     )
 }
 
